@@ -15,6 +15,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { HistoryComponent } from './pages/history/history.component';
 import { SidebarComponent } from './layouts/sidebar/sidebar.component';
+import { HomeProfileComponent } from './pages/home-profile/home-profile.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,8 @@ import { SidebarComponent } from './layouts/sidebar/sidebar.component';
     NotFoundComponent,
     RegistroComponent,
     HistoryComponent,
-    SidebarComponent
+    SidebarComponent,
+    HomeProfileComponent
   ],
   imports: [
     BrowserModule,
