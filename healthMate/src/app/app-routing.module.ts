@@ -6,14 +6,29 @@ import { DoctorsComponent } from './pages/doctors/doctors.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { HistoryComponent } from './pages/history/history.component';
+import { HomeProfileComponent } from './pages/home-profile/home-profile.component';
 
 const routes: Routes = [
   {path:'',redirectTo: 'home', pathMatch: 'full'},
   {path:'home',component: HomeComponent},
-  {path:'profile',component: ProfileComponent},
+  {path:'profile',component: ProfileComponent, 
+  children: [
+    {
+      path: '',
+      component: HistoryComponent, // another child route component that the router renders
+    }
+    ,
+    {
+      path: 'calendar', // child route path
+      component: CalendarComponent, // child route component that the router renders
+    },
+    {
+      path: 'history',
+      component: HomeProfileComponent, // another child route component that the router renders
+    }
+
+  ]},
   {path:'doctors',component: DoctorsComponent},
-  {path:'calendar',component: CalendarComponent},
-  {path:'history',component: HistoryComponent},
   {path:'*',component: NotFoundComponent},
 ];
 
