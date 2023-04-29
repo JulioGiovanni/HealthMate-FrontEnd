@@ -1,0 +1,73 @@
+<div
+  class="flex sm:items-center sm:justify-center lg:items-start lg:justify-between bg-emerald-400 h-96 p-12"
+>
+  <div class="flex flex-col justify-start">
+    <p class="text-white text-3xl">Encuentra a tu especialista y pide cita</p>
+    <p class="text-white text-xl">
+      {{ especialistas }} profesionales están aquí para ayudarte.
+    </p>
+
+    <app-select class="mt-4" [options]="options"></app-select>
+  </div>
+  <img
+    src="assets/home_icon3.svg"
+    class="hidden sm:block sm:w-[200px] lg:w-[400px]"
+    alt=""
+  />
+</div>
+<div
+  class="flex-col mt-12 flex lg:flex-row justify-center md:justify-evenly lg:space-x-4 mx-12 xl:mx-32"
+>
+  <div class="flex-none sm:mt-10 lg:mt-0 lg:w-1/4">
+    <div class="flex justify-start space-x-4">
+      <mat-icon [ngStyle]="{ color: '#00d7ac' }">search</mat-icon>
+      <p class="md:text-base font-semibold xl:text-lg">
+        Encuentra a tu especialista
+      </p>
+    </div>
+    <p class="md:text-base text-gray-500 break-words">
+      Las opiniones reales de miles de pacientes te ayudarán a tomar siempre la
+      mejor decisión.
+    </p>
+  </div>
+
+  <div class="flex-none sm:mt-10 lg:mt-0 lg:w-1/4">
+    <div class="flex justify-start space-x-4">
+      <mat-icon [ngStyle]="{ color: '#00d7ac' }">calendar_today</mat-icon>
+      <p class="md:text-base font-semibold xl:text-lg">
+        Pide cita de forma fácil
+      </p>
+    </div>
+    <p class="md:text-base text-gray-500 break-words">
+      Elige la hora que prefieras y pide cita sin necesidad de llamar. Es fácil,
+      cómo y muy rápido.
+    </p>
+  </div>
+  <div class="flex-none sm:mt-10 lg:mt-0 lg:w-1/4">
+    <div class="flex justify-start space-x-4">
+      <mat-icon [ngStyle]="{ color: '#00d7ac' }">watch_later</mat-icon>
+      <p class="md:text-base font-semibold xl:text-lg">
+        Encuentra a tu especialista
+      </p>
+    </div>
+    <p class="md:text-base text-gray-500 break-words">
+      Te confirmamos la cita al instante y te enviamos un recordatorio a tu
+      celular antes de la cita.
+    </p>
+  </div>
+  <div class="flex-none sm:mt-10 lg:mt-0 lg:w-1/4">
+    <div class="flex justify-start space-x-4">
+      <mat-icon [ngStyle]="{ color: '#00d7ac' }">thumb_up</mat-icon>
+      <p class="md:text-base font-semibold xl:text-lg">
+        Encuentra a tu especialista
+      </p>
+    </div>
+    <p class="md:text-base text-gray-500 break-words">
+      La reserva de cita es un servicio gratuito de Healthmate.
+    </p>
+  </div>
+</div>
+
+<div class="container mx-auto">
+  <app-new-profile-carousel [cards]="cards"> </app-new-profile-carousel>
+</div>

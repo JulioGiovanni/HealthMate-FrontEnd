@@ -1,0 +1,30 @@
+<div class="flex lg:flex-row flex-col">
+  <!-- Columna principal -->
+  <div class="flex lg:w-3/4">
+    <!-- Card de detalles del doctor -->
+    <div class="flex justify-evenly w-full">
+      <img src="https://i.pravatar.cc/150" width="150" height="150" alt="" />
+      <div class="flex flex-col">
+        <p class="text-2xl fon-bold">Nombre y Apellido</p>
+        <p class="text-gray-500">Categoría</p>
+        <p class="text-sm text-gray-500">No. de Cédula: ########</p>
+        <app-rating [rating]="4" [numeroOpiniones]="100"></app-rating>
+        <div class="flex space-x-6 mt-4">
+          <button class="flex btn btn-primary">
+            <mat-icon>calendar_today</mat-icon>
+            <p style="margin: 0" class="ml-4 text-white">Agendar cita</p>
+          </button>
+          <button class="btn btn-outline hover:bg-gray-200">
+            <mat-icon>chat</mat-icon>
+            <p style="margin: 0" class="text-gray-600">Enviar mensaje</p>
+          </button>
+        </div>
+      </div>
+    </div>
+    <!--  -->
+  </div>
+  <!--  -->
+  <!-- Columna izquierda, oculta en móviles -->
+  <div class="hidden lg:flex lg:w-1/4"></div>
+  <!--  -->
+</div>

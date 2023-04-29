@@ -1,0 +1,91 @@
+<div class="drawer">
+  <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+  <div class="drawer-content flex flex-col">
+    <!-- Navbar -->
+    <div class="w-full navbar bg-primary">
+      <div class="navbar-start">
+        <a
+          [routerLink]="['/']"
+          class="btn btn-ghost normal-case text-xl flex items-center"
+        >
+          <img src="assets/app_icon.png" alt="logo" class="w-7 h-7 mr-2" />
+          <p class="text-xl text-white" style="margin: 0">Healthmate</p>
+        </a>
+      </div>
+      <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1">
+          <li><a class="text-white">¿Cómo protegemos los datos?</a></li>
+          <li><a class="text-white">Pregunta al Experto</a></li>
+
+          <li tabindex="0">
+            <a class="text-white">
+              Registrarme
+              <svg
+                class="fill-current"
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"
+                />
+              </svg>
+            </a>
+            <ul class="p-2 bg-white">
+              <li><a>Como paciente</a></li>
+              <li><a>Como especialista</a></li>
+            </ul>
+          </li>
+          <li>
+            <a [routerLink]="['/login']" class="text-white">Iniciar sesión</a>
+          </li>
+        </ul>
+      </div>
+      <div class="navbar-end">
+        <a class="hidden lg:flex btn bg-white text-black border-none"
+          >¿Eres profesional de la salud?</a
+        >
+      </div>
+      <div class="flex-none lg:hidden">
+        <label for="my-drawer-3" class="btn btn-square btn-ghost">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            class="inline-block w-6 h-6 stroke-current"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            ></path>
+          </svg>
+        </label>
+      </div>
+    </div>
+    <!-- Page content here -->
+    <router-outlet></router-outlet>
+  </div>
+  <div class="drawer-side">
+    <label for="my-drawer-3" class="drawer-overlay"></label>
+    <ul class="menu p-4 w-80 bg-base-100">
+      <!-- Sidebar content here -->
+      <li><a>¿Cómo protegemos los datos?</a></li>
+      <li><a>Pregunta al Experto</a></li>
+      <div
+        tabindex="0"
+        class="collapse collapse-arrow border-none bg-base-100 rounded-box"
+      >
+        <div class="collapse-title">Registrarme</div>
+        <div class="collapse-content">
+          <li><a>Como paciente</a></li>
+          <li><a>Como especialista</a></li>
+        </div>
+      </div>
+
+      <li><a>Iniciar sesión</a></li>
+    </ul>
+  </div>
+</div>
