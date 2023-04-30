@@ -33,7 +33,7 @@
               </svg>
             </a>
             <ul class="p-2 bg-white">
-              <li><a>Como paciente</a></li>
+              <li><a [routerLink]="['/registro']">Como paciente</a></li>
               <li><a>Como especialista</a></li>
             </ul>
           </li>
@@ -80,12 +80,12 @@
       >
         <div class="collapse-title">Registrarme</div>
         <div class="collapse-content">
-          <li><a>Como paciente</a></li>
+          <li><a [routerLink]="['/registro']">Como paciente</a></li>
           <li><a>Como especialista</a></li>
         </div>
       </div>
 
-      <li><a>Iniciar sesión</a></li>
+      <li><a [routerLink]="['/login']">Iniciar sesión</a></li>
     </ul>
   </div>
 </div>

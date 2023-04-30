@@ -10,6 +10,7 @@ import { HomeProfileComponent } from './pages/home-profile/home-profile.componen
 import { DetailsComponent } from './pages/doctors/details/details.component';
 import { LoginComponent } from './pages/login/login.component';
 import { layoutTypes } from './shared/utils';
+import { RegistroComponent } from './pages/registro/registro.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -17,6 +18,14 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    pathMatch: 'full',
+    data: {
+      layout: layoutTypes.Auth,
+    },
+  },
+  {
+    path: 'registro',
+    component: RegistroComponent,
     pathMatch: 'full',
     data: {
       layout: layoutTypes.Auth,
@@ -40,7 +49,7 @@ const routes: Routes = [
       },
     ],
   },
-  { path: 'doctores', component: DoctoresComponent },
+  { path: ':categoria', component: DoctoresComponent },
   { path: 'doctores/:id', component: DetailsComponent },
   { path: '**', pathMatch: 'full', component: NotFoundComponent },
 ];

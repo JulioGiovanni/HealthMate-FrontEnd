@@ -1,17 +1,32 @@
 <div class="container">
   <div class="flex flex-row justify-center">
-    <div class="flex flex-col columns-12 md:columns-6 lg:columns-5">
+    <div class="flex flex-col w-full md:w-6/12 lg:w-5/12">
       <p class="text-2xl font-bold">Accede a tu cuenta</p>
       <input
         type="text"
         placeholder="Correo Electrónico"
-        class="mt-4 input input-bordered w-full max-w-xs md:max-w-sm lg:max-w-md"
+        class="mt-4 input input-bordered w-full"
       />
       <input
         type="password"
         placeholder="Contraseña"
-        class="mt-4 input input-bordered w-full max-w-xs md:max-w-sm lg:max-w-md"
+        class="mt-4 input input-bordered w-full"
       />
+      <button class="my-4 btn btn-primary text-white">Iniciar Sesión</button>
+      <a class="btn btn-link no-underline text-blue-400"
+        >He olvidado mi contraseña</a
+      >
+      <div class="divider">o</div>
+      <app-google-button text="Iniciar sesión con Google"></app-google-button>
+      <div class="divider"></div>
+      <p class="text-center">
+        ¿No tienes una cuenta?
+        <a
+          [routerLink]="['/registro']"
+          class="btn btn-link no-underline text-blue-500"
+          >Regístrate</a
+        >
+      </p>
     </div>
   </div>
 </div>

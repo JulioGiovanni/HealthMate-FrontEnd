@@ -30,6 +30,7 @@ import { ProfileLayoutComponent } from './layouts/profile-layout/profile-layout.
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { NewProfileCarouselComponent } from './pages/home/new-profile-carousel/new-profile-carousel.component';
+import { GoogleButtonComponent } from './shared/components/google-button/google-button.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { NewProfileCarouselComponent } from './pages/home/new-profile-carousel/n
     AdminLayoutComponent,
     AuthLayoutComponent,
     NewProfileCarouselComponent,
+    GoogleButtonComponent,
   ],
   imports: [
     BrowserModule,
