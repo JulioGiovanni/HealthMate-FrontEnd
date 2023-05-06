@@ -1,0 +1,148 @@
+<div class="flex flex-col md:flex-row">
+  <div class="flex flex-col w-full md:w-7/12 h-full px-16 mt-4">
+    <p class="text-3xl font-bold">Cree su perfil gratuito de especialista</p>
+    <app-select-especialidad
+      class="mt-4"
+      (updatedOption)="updateSelectedOption($event)"
+      [selectedOption]="selectedOption"
+      [options]="options"
+    ></app-select-especialidad>
+    <div class="flex flex-col md:flex-row md:space-x-4">
+      <div class="mt-4 form-control w-full">
+        <label class="label">
+          <span class="label-text font-bold"> Nombre completo * </span>
+        </label>
+        <input
+          placeholder="Nombre"
+          type="text"
+          class="input input-bordered w-full"
+        />
+      </div>
+      <div class="mt-4 form-control w-full">
+        <label class="label">
+          <span class="label-text font-bold">Correo *</span>
+        </label>
+        <input
+          placeholder="Correo"
+          type="text"
+          class="input input-bordered w-full"
+        />
+      </div>
+    </div>
+    <div class="mt-4 form-control">
+      <label class="label">
+        <span class="label-text font-bold">Número telefónico *</span>
+      </label>
+      <input
+        placeholder="Teléfono o celular"
+        type="text"
+        class="input input-bordered w-full"
+      />
+    </div>
+    <div class="mt-4 form-control">
+      <label class="label">
+        <span class="label-text font-bold">Establecer contraseña *</span>
+      </label>
+      <input
+        placeholder="Contraseña"
+        type="password"
+        class="input input-bordered w-full"
+      />
+      <label for="" class="label">
+        <span class="label-text-alt text-gray-400"
+          >Debería ocupar entre 8 y 20 caracteres</span
+        >
+      </label>
+    </div>
+    <div class="mt-4 form-control">
+      <label class="label">
+        <span class="label-text font-bold">Número de cédula *</span>
+      </label>
+      <input type="text" class="input input-bordered w-full" />
+    </div>
+    <div class="mt-4 form-control">
+      <label class="label">
+        <span class="label-text font-bold"
+          >Escaneado de diploma o certificación *</span
+        >
+      </label>
+      <input type="file" class="file-input file-input-primary w-full" />
+      <label for="" class="label">
+        <span class="label-text-alt text-gray-400"
+          >Por favor, adjunta tu diploma o certificado que demuestre tu
+          historial médico. Puede ser una foto o un documento escaneado</span
+        >
+      </label>
+    </div>
+    <button
+      class="btn btn-block btn-primary text-white my-4"
+      (click)="registrarse()"
+    >
+      Registrarse
+    </button>
+  </div>
+  <div
+    class="p-4 md:p-12 mt-4 flex flex-col w-full bg-gray-100 md:h-screen md:w-5/12 md:mt-0"
+  >
+    <div class="flex mb-4">
+      <div
+        class="rounded-full flex-row bg-blue-100 min-w-[48px] h-12 w-12 flex justify-center items-center"
+      >
+        <svg class="fill-blue-700 h-6 w-6">
+          <path
+            d="m15.995 5.04-2.686-.233-1.05-2.47a.555.555 0 0 0-1.02 0l-1.05 2.476-2.68.227a.554.554 0 0 0-.316.971l2.036 1.765-.61 2.62a.554.554 0 0 0 .827.6l2.303-1.388L14.052 11a.554.554 0 0 0 .827-.6l-.61-2.625 2.037-1.765c.372-.322.177-.932-.311-.97Zm-5 9.92-2.686-.233-1.05-2.47a.555.555 0 0 0-1.02 0l-1.05 2.475-2.68.228a.554.554 0 0 0-.316.971l2.036 1.765-.61 2.62a.554.554 0 0 0 .827.6l2.303-1.388 2.303 1.393a.554.554 0 0 0 .827-.6l-.61-2.625 2.037-1.765c.372-.322.177-.932-.311-.971Zm7.814-.233 2.686.233c.488.039.683.65.31.971l-2.036 1.765.61 2.625a.554.554 0 0 1-.827.6l-2.303-1.393-2.303 1.387a.554.554 0 0 1-.827-.6l.61-2.619-2.036-1.765a.554.554 0 0 1 .316-.971l2.68-.228 1.05-2.475a.555.555 0 0 1 1.02 0l1.05 2.47Z"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="ml-4 flex flex-col">
+        <p class="text-lg text-gray-600">
+          Deje que los pacientes le encuentren
+        </p>
+        <p class="text-gray-500">
+          5 millones de pacientes visitan Healthmate cada mes.
+        </p>
+      </div>
+    </div>
+    <div class="flex my-4">
+      <div
+        class="rounded-full flex-row bg-blue-100 min-w-[48px] h-12 w-12 flex justify-center items-center"
+      >
+        <svg class="fill-blue-700 h-6 w-6">
+          <path
+            d="M16 10c1.66 0 2.99-1.34 2.99-3S17.66 4 16 4c-1.66 0-3 1.34-3 3s1.34 3 3 3Zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 4 8 4C6.34 4 5 5.34 5 7s1.34 3 3 3Zm0 2c-2.33 0-7 1.17-7 3.5V19c0 .55.45 1 1 1h12c.55 0 1-.45 1-1v-3.5c0-2.33-4.67-3.5-7-3.5Zm8 0c-.29 0-.62.02-.97.05.02.01.03.03.04.04 1.14.83 1.93 1.94 1.93 3.41V19c0 .35-.07.69-.18 1H22c.55 0 1-.45 1-1v-3.5c0-2.33-4.67-3.5-7-3.5Z"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="ml-4 flex flex-col">
+        <p class="text-lg text-gray-600">
+          Deje que los pacientes le encuentren
+        </p>
+        <p class="text-gray-500">
+          5 millones de pacientes visitan Healthmate cada mes.
+        </p>
+      </div>
+    </div>
+    <div class="flex my-4">
+      <div
+        class="rounded-full flex-row bg-blue-100 min-w-[48px] h-12 w-12 flex justify-center items-center"
+      >
+        <svg class="fill-blue-700 h-6 w-6">
+          <path
+            d="M2.827 7.775a2 2 0 0 0-.243 2.67L10.4 20.867a2 2 0 0 0 3.2 0l7.816-10.422a2 2 0 0 0-.243-2.67L16.575 3.53A2 2 0 0 0 15.218 3H8.782a2 2 0 0 0-1.357.53L2.827 7.775Zm16.266 2.435-5.553 7.403 2.085-6.603 3.468-.8Zm.081-1.558-2.951.68.927-2.549 2.024 1.869ZM13.828 9.75h-3.656L12 5.79l1.828 3.96Zm-3.805 1.5h3.954L12 17.51l-1.977-6.26Zm-1.648-.24 2.085 6.603-5.553-7.403 3.468.8Zm-.597-1.677-2.952-.681L6.85 6.783l.928 2.55Zm8.177-3.653-1.037 2.852L13.288 5h1.93l.737.68ZM10.712 5l-1.63 3.532L8.045 5.68 8.782 5h1.93Z"
+          ></path>
+        </svg>
+      </div>
+
+      <div class="ml-4 flex flex-col">
+        <p class="text-lg text-gray-600">
+          Deje que los pacientes le encuentren
+        </p>
+        <p class="text-gray-500">
+          5 millones de pacientes visitan Healthmate cada mes.
+        </p>
+      </div>
+    </div>
+  </div>
+</div>

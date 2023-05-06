@@ -5,9 +5,9 @@
 
   <app-auth-layout *ngSwitchCase="layoutTypes.Auth"> </app-auth-layout>
 
-  <router-outlet *ngSwitchCase="layoutTypes.NoLayout"> </router-outlet>
+  <app-doctors-auth *ngSwitchCase="layoutTypes.DoctorsAuth"> </app-doctors-auth>
 
-  <app-admin-layout *ngSwitchCase="layoutTypes.Admin"> </app-admin-layout>
+  <router-outlet *ngSwitchCase="layoutTypes.NoLayout"> </router-outlet>
 
   <app-default-layout *ngSwitchDefault> </app-default-layout>
 </ng-container>

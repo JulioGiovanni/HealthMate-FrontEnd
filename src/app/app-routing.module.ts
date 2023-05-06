@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { HomeComponent } from './pages/home/home.component';
-import { ProfileComponent } from './pages/profile/profile.component';
-import { DoctoresComponent } from './pages/doctors/doctors.component';
+import { HomeComponent } from './pages/usuarios/home/home.component';
+import { ProfileComponent } from './pages/usuarios/profile/profile.component';
+import { DoctoresComponent } from './pages/usuarios/doctors/doctors.component';
 import { CalendarComponent } from './pages/calendar/calendar.component';
-import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 import { HistoryComponent } from './pages/history/history.component';
-import { HomeProfileComponent } from './pages/home-profile/home-profile.component';
-import { DetailsComponent } from './pages/doctors/details/details.component';
-import { LoginComponent } from './pages/login/login.component';
+import { HomeProfileComponent } from './pages/usuarios/home-profile/home-profile.component';
+import { DetailsComponent } from './pages/usuarios/doctors/details/details.component';
+import { LoginComponent } from './pages/usuarios/login/login.component';
 import { layoutTypes } from './shared/utils';
-import { RegistroComponent } from './pages/registro/registro.component';
+import { RegistroComponent } from './pages/usuarios/registro/registro.component';
+import { DoctoresHomeComponent } from './pages/doctores/home/home.component';
+import { DoctoresLoginComponent } from './pages/doctores/login/login.component';
+import { DoctoresRegistroComponent } from './pages/doctores/registro/registro.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -49,8 +52,42 @@ const routes: Routes = [
       },
     ],
   },
-  { path: ':categoria', component: DoctoresComponent },
-  { path: 'doctores/:id', component: DetailsComponent },
+  {
+    path: 'categoria/:categoria',
+    children: [
+      {
+        path: '',
+        component: DoctoresComponent,
+      },
+      {
+        path: 'doctor/:id',
+        component: DetailsComponent,
+      },
+    ],
+  },
+  {
+    path: 'doctores',
+    children: [
+      {
+        path: '',
+        component: DoctoresHomeComponent,
+      },
+      {
+        path: 'login',
+        component: DoctoresLoginComponent,
+        data: {
+          layout: layoutTypes.DoctorsAuth,
+        },
+      },
+      {
+        path: 'registro',
+        component: DoctoresRegistroComponent,
+        data: {
+          layout: layoutTypes.DoctorsAuth,
+        },
+      },
+    ],
+  },
   { path: '**', pathMatch: 'full', component: NotFoundComponent },
 ];
 

@@ -34,7 +34,9 @@
             </a>
             <ul class="p-2 bg-white">
               <li><a [routerLink]="['/registro']">Como paciente</a></li>
-              <li><a>Como especialista</a></li>
+              <li>
+                <a [routerLink]="['/doctores/registro']">Como especialista</a>
+              </li>
             </ul>
           </li>
           <li>
@@ -43,7 +45,9 @@
         </ul>
       </div>
       <div class="navbar-end">
-        <a class="hidden lg:flex btn bg-white text-black border-none"
+        <a
+          [routerLink]="['/doctores/login']"
+          class="hidden lg:flex btn bg-white text-black border-none hover:bg-gray-200"
           >¿Eres profesional de la salud?</a
         >
       </div>
@@ -81,7 +85,9 @@
         <div class="collapse-title">Registrarme</div>
         <div class="collapse-content">
           <li><a [routerLink]="['/registro']">Como paciente</a></li>
-          <li><a>Como especialista</a></li>
+          <li>
+            <a [routerLink]="['/doctores/registro']">Como especialista</a>
+          </li>
         </div>
       </div>
 

@@ -4,4 +4,5 @@ export enum layoutTypes {
   Admin = 'admin',
   Profile = 'profile',
   NoLayout = 'no-layout',
+  DoctorsAuth = 'doctors-auth',
 }

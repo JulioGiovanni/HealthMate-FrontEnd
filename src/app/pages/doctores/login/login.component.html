@@ -1,0 +1,30 @@
+<div class="container mt-4">
+  <div class="flex flex-row justify-center">
+    <div class="flex flex-col w-full md:w-6/12 lg:w-5/12">
+      <p class="text-2xl font-bold">Accede a tu cuenta</p>
+      <input
+        type="text"
+        placeholder="Correo Electrónico"
+        class="mt-4 input input-bordered w-full"
+      />
+      <input
+        type="password"
+        placeholder="Contraseña"
+        class="mt-4 input input-bordered w-full"
+      />
+      <button class="my-4 btn btn-primary text-white">Iniciar Sesión</button>
+      <a class="btn btn-link no-underline text-blue-400"
+        >He olvidado mi contraseña</a
+      >
+      <div class="divider"></div>
+      <p class="text-center">
+        ¿No tienes una cuenta?
+        <a
+          [routerLink]="['/doctores/registro']"
+          class="btn btn-link no-underline text-blue-500"
+          >Regístrate como especialista</a
+        >
+      </p>
+    </div>
+  </div>
+</div>
