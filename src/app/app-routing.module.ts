@@ -14,10 +14,12 @@ import { RegistroComponent } from './pages/usuarios/registro/registro.component'
 import { DoctoresHomeComponent } from './pages/doctores/home/home.component';
 import { DoctoresLoginComponent } from './pages/doctores/login/login.component';
 import { DoctoresRegistroComponent } from './pages/doctores/registro/registro.component';
+import { ChatViewComponent } from './shared/components/chat-view/chat-view.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
+  { path: 'chat', component: ChatViewComponent },
   {
     path: 'login',
     component: LoginComponent,
