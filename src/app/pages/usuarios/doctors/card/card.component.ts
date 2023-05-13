@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Doctor } from 'src/app/shared/interfaces/doctor.interface';
+import { environment } from 'src/environments/environment.development';
 
 @Component({
   selector: 'app-card',
@@ -6,8 +8,42 @@ import { Component } from '@angular/core';
   styleUrls: ['./card.component.scss'],
 })
 export class CardComponent {
+  @Input() doctor: Doctor;
   days: String[] = this.getThreeDays();
   horas: String[] = ['10:00', '11:00', '12:00', '13:00', '14:00'];
+  environment = environment;
+
+  constructor() {
+    this.doctor = {
+      id: '',
+      nombre: '',
+      cedula: '',
+      especialidad: {
+        id: 0,
+        nombre: '',
+        descripcion: '',
+        foto: '',
+      },
+      telefono: '',
+      email: '',
+      password: '',
+      preparacionfisica: '',
+      preparacionlinea: '',
+      experiencia: '',
+      idiomas: [],
+      foto: '',
+      genero: '',
+      fechaNacimiento: '',
+      direccion: '',
+      hospital: '',
+      reembolso: '',
+      formacion: '',
+      horario: '',
+      precio: 0,
+      consulta: '',
+    };
+  }
+
   getDayOfTheWeek() {
     const daysOfTheWeek = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sáb'];
     const today = new Date();

@@ -15,7 +15,6 @@ export class ChatService {
   public connect(namespace: string): Observable<ChatMessage> {
     const url = `${this.baseUrl}/${namespace}`;
     this.socket = io(url);
-    console.log(this.socket);
 
     return new Observable<ChatMessage>((observer: Observer<ChatMessage>) => {
       this.socket.on('message', (message: ChatMessage) => {
@@ -41,8 +40,12 @@ export class ChatService {
     });
   }
 
-  public sendMessage(message: ChatMessage): void {
-    this.socket.emit('message', message);
+  public joinRoom(room: string): void {
+    this.socket.emit('joinRoom', room);
+  }
+
+  public sendMessage(message: ChatMessage, roomId: string): void {
+    this.socket.emit('message', { roomId, message });
   }
 
   public disconnect(): void {

@@ -16,6 +16,8 @@ import { HomeProfileComponent } from './home-profile/home-profile.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/modules/material/material.module';
+import { FormsModule } from '@angular/forms';
+import { SelectCategoriaComponent } from './home/select-categoria/select-categoria.component';
 
 @NgModule({
   declarations: [
@@ -32,8 +34,15 @@ import { MaterialModule } from 'src/app/modules/material/material.module';
     DetailsComponent,
     LoginComponent,
     NewProfileCarouselComponent,
+    SelectCategoriaComponent,
   ],
-  imports: [CommonModule, RouterModule, SharedModule, MaterialModule],
+  imports: [
+    CommonModule,
+    RouterModule,
+    SharedModule,
+    MaterialModule,
+    FormsModule,
+  ],
   exports: [
     // CalendarComponent,
     // HistoryComponent,
@@ -44,6 +53,7 @@ import { MaterialModule } from 'src/app/modules/material/material.module';
     RegistroComponent,
     DetailsComponent,
     LoginComponent,
+    SelectCategoriaComponent,
   ],
 })
 export class UsuariosModule {}

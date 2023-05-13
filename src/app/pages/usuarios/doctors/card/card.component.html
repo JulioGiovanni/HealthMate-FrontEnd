@@ -5,25 +5,33 @@
       <div class="flex">
         <img
           class="rounded-full"
-          src="https://i.pravatar.cc/100"
+          src="{{
+            environment.supabaseUrl +
+              doctor.foto +
+              '?apikey=' +
+              environment.token
+          }}"
           alt="doctor-image"
           height="100"
           width="100"
         />
         <div class="ml-6 flex flex-col">
-          <p class="text-2xl font-semibold">
-            Dr.
-            <!--{{ doctor.name }}-->
-            Nombre y Apellido
-          </p>
+          <a
+            [routerLink]="[
+              '/categoria/' + doctor.especialidad.id + '/doctor/' + doctor.id
+            ]"
+            class="text-2xl font-semibold"
+          >
+            {{ doctor.genero === "Mujer" ? "Dra." : "Dr." }}
+            {{ doctor.nombre }}
+          </a>
           <p class="text-gray-500">
-            <!--{{ doctor.specialty }}-->
-            Especialidad
+            {{ doctor.especialidad.nombre }}
           </p>
           <app-rating [rating]="2" [numeroOpiniones]="200"></app-rating>
         </div>
       </div>
-      <app-tabs></app-tabs>
+      <app-tabs [doctor]="doctor"></app-tabs>
       <!--  -->
     </div>
     <hr class="mt-6 lg:hidden" />

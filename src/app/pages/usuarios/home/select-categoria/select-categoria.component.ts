@@ -8,15 +8,14 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'app-select',
-  templateUrl: './select.component.html',
-  styleUrls: ['./select.component.scss'],
+  selector: 'select-categoria',
+  templateUrl: './select-categoria.component.html',
+  styleUrls: ['./select-categoria.component.scss'],
 })
-export class SelectComponent {
+export class SelectCategoriaComponent {
   @ViewChild('dropdown') dropdown: ElementRef;
   @ViewChild('dropdownToggle') dropdownToggle: ElementRef;
   @Input() options: any[];
-  @Input() placeholder: string = 'Selecciona una opción';
   selectedOption: any = {};
 
   ngOnInit() {}
@@ -24,9 +23,7 @@ export class SelectComponent {
     this.dropdownToggle = new ElementRef(null);
     this.dropdown = new ElementRef(null);
     this.options = [];
-
-    this.selectedOption.nombre = this.placeholder;
-    console.log(this.options);
+    this.selectedOption.nombre = 'Selecciona una opción';
   }
 
   toggleDropdown() {

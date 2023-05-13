@@ -1,16 +1,20 @@
 <div class="container">
   <div class="flex flex-row justify-center">
-    <div class="flex flex-col w-full md:w-6/12 lg:w-5/12">
+    <form class="flex flex-col w-full md:w-6/12 lg:w-5/12" (submit)="login()">
       <p class="text-2xl font-bold">Accede a tu cuenta</p>
       <input
         type="text"
         placeholder="Correo Electrónico"
         class="mt-4 input input-bordered w-full"
+        name="email"
+        [(ngModel)]="credenciales.email"
       />
       <input
         type="password"
         placeholder="Contraseña"
         class="mt-4 input input-bordered w-full"
+        name="password"
+        [(ngModel)]="credenciales.password"
       />
       <button class="my-4 btn btn-primary text-white">Iniciar Sesión</button>
       <a class="btn btn-link no-underline text-blue-400"
@@ -27,6 +31,6 @@
           >Regístrate</a
         >
       </p>
-    </div>
+    </form>
   </div>
 </div>

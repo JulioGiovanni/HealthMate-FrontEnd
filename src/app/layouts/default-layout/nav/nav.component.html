@@ -17,7 +17,7 @@
           <li><a class="text-white">¿Cómo protegemos los datos?</a></li>
           <li><a class="text-white">Pregunta al Experto</a></li>
 
-          <li tabindex="0">
+          <li *ngIf="!isAuth && !isDoctorAuth" tabindex="0">
             <a class="text-white">
               Registrarme
               <svg
@@ -39,16 +39,23 @@
               </li>
             </ul>
           </li>
-          <li>
+          <li *ngIf="!isAuth && !isDoctorAuth">
             <a [routerLink]="['/login']" class="text-white">Iniciar sesión</a>
           </li>
         </ul>
       </div>
       <div class="navbar-end">
         <a
+          *ngIf="!isAuth && !isDoctorAuth"
           [routerLink]="['/doctores/login']"
           class="hidden lg:flex btn bg-white text-black border-none hover:bg-gray-200"
           >¿Eres profesional de la salud?</a
+        >
+        <a
+          *ngIf="isAuth || isDoctorAuth"
+          (click)="onSignOut()"
+          class="hidden lg:flex btn btn-error text-white border-none hover:bg-red-600"
+          >Cerrar sesión</a
         >
       </div>
       <div class="flex-none lg:hidden">
@@ -79,6 +86,7 @@
       <li><a>¿Cómo protegemos los datos?</a></li>
       <li><a>Pregunta al Experto</a></li>
       <div
+        *ngIf="!isAuth && !isDoctorAuth"
         tabindex="0"
         class="collapse collapse-arrow border-none bg-base-100 rounded-box"
       >
@@ -91,7 +99,14 @@
         </div>
       </div>
 
-      <li><a [routerLink]="['/login']">Iniciar sesión</a></li>
+      <li *ngIf="!isAuth && !isDoctorAuth">
+        <a [routerLink]="['/login']">Iniciar sesión</a>
+      </li>
+      <li *ngIf="isAuth || isDoctorAuth">
+        <a (click)="onSignOut()" class="hover:bg-red-400 hover:text-white"
+          >Cerrar sesión</a
+        >
+      </li>
     </ul>
   </div>
 </div>

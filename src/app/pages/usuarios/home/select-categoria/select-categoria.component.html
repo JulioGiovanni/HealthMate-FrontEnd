@@ -1,5 +1,5 @@
 <div
-  class="inline-block relative w-full border rounded-md"
+  class="inline-block relative w-full"
   (click)="toggleDropdown()"
   #dropdownToggle
 >
@@ -34,3 +34,10 @@
     </li>
   </ul>
 </div>
+<button
+  [routerLink]="['/categoria/' + selectedOption.id]"
+  class="btn btn-secondary w-full border border-solid mt-4"
+  [disabled]="selectedOption === 'Elige a tu especialista'"
+>
+  <p class="">Buscar</p>
+</button>

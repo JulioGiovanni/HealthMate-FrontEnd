@@ -1,5 +1,7 @@
 import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
+import { Doctor } from 'src/app/shared/interfaces/doctor.interface';
+import { GeneralService } from 'src/app/shared/services/general/general.service';
 
 @Component({
   selector: 'app-new-profile-carousel',
@@ -8,7 +10,7 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 })
 export class NewProfileCarouselComponent implements OnInit {
   @ViewChild('carousel') carousel: ElementRef;
-  @Input() cards: any[] = [];
+  cards: Doctor[] = [];
   currentPage: number = 0;
   pages: number[] = [];
   pageSize: number = 3;
@@ -19,18 +21,24 @@ export class NewProfileCarouselComponent implements OnInit {
     large: '(min-width: 1024px)',
   };
 
-  constructor(private breakpointObserver: BreakpointObserver) {
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private generalService: GeneralService
+  ) {
     this.carousel = new ElementRef(null);
   }
   ngOnInit(): void {
-    this.pages = Array(Math.ceil(this.cards.length / this.pageSize))
-      .fill(0)
-      .map((_, i) => i);
-    this.breakpointObserver
-      .observe(Object.values(this.breakpoints))
-      .subscribe(() => {
-        this.setPageSize();
-      });
+    this.generalService.lastRegisteredDoctors().subscribe((response: any) => {
+      this.cards = response;
+      this.pages = Array(Math.ceil(this.cards.length / this.pageSize))
+        .fill(0)
+        .map((_, i) => i);
+      this.breakpointObserver
+        .observe(Object.values(this.breakpoints))
+        .subscribe(() => {
+          this.setPageSize();
+        });
+    });
   }
 
   setPageSize() {

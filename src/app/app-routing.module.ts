@@ -3,9 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/usuarios/home/home.component';
 import { ProfileComponent } from './pages/usuarios/profile/profile.component';
 import { DoctoresComponent } from './pages/usuarios/doctors/doctors.component';
-import { CalendarComponent } from './pages/calendar/calendar.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
-import { HistoryComponent } from './pages/history/history.component';
 import { HomeProfileComponent } from './pages/usuarios/home-profile/home-profile.component';
 import { DetailsComponent } from './pages/usuarios/doctors/details/details.component';
 import { LoginComponent } from './pages/usuarios/login/login.component';
@@ -15,11 +13,13 @@ import { DoctoresHomeComponent } from './pages/doctores/home/home.component';
 import { DoctoresLoginComponent } from './pages/doctores/login/login.component';
 import { DoctoresRegistroComponent } from './pages/doctores/registro/registro.component';
 import { ChatViewComponent } from './shared/components/chat-view/chat-view.component';
+import { GeneralService } from './shared/services/general/general.service';
+import { AuthGuard } from './shared/guards/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'chat', component: ChatViewComponent },
+  { path: 'chat/:id', component: ChatViewComponent, canActivate: [AuthGuard] },
   {
     path: 'login',
     component: LoginComponent,
@@ -27,6 +27,7 @@ const routes: Routes = [
     data: {
       layout: layoutTypes.Auth,
     },
+    canActivate: [AuthGuard],
   },
   {
     path: 'registro',
@@ -35,19 +36,13 @@ const routes: Routes = [
     data: {
       layout: layoutTypes.Auth,
     },
+    canActivate: [AuthGuard],
   },
   {
     path: 'perfil',
     component: ProfileComponent,
+    canActivate: [AuthGuard],
     children: [
-      {
-        path: '',
-        component: HistoryComponent, // another child route component that the router renders
-      },
-      {
-        path: 'calendar', // child route path
-        component: CalendarComponent, // child route component that the router renders
-      },
       {
         path: 'history',
         component: HomeProfileComponent, // another child route component that the router renders
@@ -60,10 +55,16 @@ const routes: Routes = [
       {
         path: '',
         component: DoctoresComponent,
+        resolve: {
+          data: GeneralService,
+        },
       },
       {
         path: 'doctor/:id',
         component: DetailsComponent,
+        resolve: {
+          data: GeneralService,
+        },
       },
     ],
   },

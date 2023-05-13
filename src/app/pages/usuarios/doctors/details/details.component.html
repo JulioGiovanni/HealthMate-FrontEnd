@@ -1,23 +1,36 @@
-<div class="flex lg:flex-row flex-col">
+<div class="flex lg:flex-row flex-col p-16 space-x-4">
   <!-- Columna principal -->
-  <div class="flex lg:w-3/4">
+  <div class="flex lg:w-3/4 border border-solid rounded-md p-4">
     <!-- Card de detalles del doctor -->
     <div class="flex justify-evenly w-full">
-      <img src="https://i.pravatar.cc/150" width="150" height="150" alt="" />
+      <img
+        src="{{
+          environment.supabaseUrl + doctor.foto + '?apikey=' + environment.token
+        }}"
+        width="150"
+        height="150"
+        alt=""
+      />
       <div class="flex flex-col">
-        <p class="text-2xl fon-bold">Nombre y Apellido</p>
-        <p class="text-gray-500">Categoría</p>
-        <p class="text-sm text-gray-500">No. de Cédula: ########</p>
+        <p class="text-2xl font-bold">
+          {{ doctor.genero === "Mujer" ? "Dra. " : "Dr. " }}
+          {{ doctor.nombre }}
+        </p>
+        <p class="text-gray-500">{{ doctor.especialidad }}</p>
+        <p class="text-sm text-gray-500">No. de Cédula: {{ doctor.cedula }}</p>
         <app-rating [rating]="4" [numeroOpiniones]="100"></app-rating>
         <div class="flex space-x-6 mt-4">
           <button class="flex btn btn-primary">
             <mat-icon>calendar_today</mat-icon>
-            <p style="margin: 0" class="ml-4 text-white">Agendar cita</p>
+            <p class="ml-4 text-white">Agendar cita</p>
           </button>
-          <button class="btn btn-outline hover:bg-gray-200">
+          <a
+            [routerLink]="['/chat/' + doctor.id]"
+            class="btn btn-outline hover:bg-gray-200"
+          >
             <mat-icon>chat</mat-icon>
-            <p style="margin: 0" class="text-gray-600">Enviar mensaje</p>
-          </button>
+            <p class="ml-4 text-gray-600">Enviar mensaje</p>
+          </a>
         </div>
       </div>
     </div>
@@ -25,6 +38,31 @@
   </div>
   <!--  -->
   <!-- Columna izquierda, oculta en móviles -->
-  <div class="hidden lg:flex lg:w-1/4"></div>
+  <div class="hidden lg:flex lg:w-1/4">
+    <div class="border border-solid rounded-md w-full">
+      <!-- Card Title -->
+      <div class="bg-blue-500 px-4 py-2 rounded-t-md">
+        <p class="text-lg text-white font-medium">Agendar cita</p>
+      </div>
+      <!--  -->
+      <!-- Card Body -->
+      <div class="flex flex-col p-4">
+        <div class="flex flex-row my-2 px-1">
+          <mat-icon>location_on</mat-icon>
+          <p class="ml-4">Dirección</p>
+        </div>
+        <app-select
+          [options]="direcciones"
+          [placeholder]="'Elige una dirección '"
+        ></app-select>
+        <div class="flex flex-row my-2 px-1">
+          <mat-icon>local_hospital</mat-icon>
+          <p class="ml-4">Elige el motivo de la visita</p>
+        </div>
+        <app-select [options]="motivos"></app-select>
+      </div>
+    </div>
+  </div>
+
   <!--  -->
 </div>
