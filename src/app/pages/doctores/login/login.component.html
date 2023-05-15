@@ -2,17 +2,25 @@
   <div class="flex flex-row justify-center">
     <div class="flex flex-col w-full md:w-6/12 lg:w-5/12">
       <p class="text-2xl font-bold">Accede a tu cuenta</p>
-      <input
-        type="text"
-        placeholder="Correo Electrónico"
-        class="mt-4 input input-bordered w-full"
-      />
-      <input
-        type="password"
-        placeholder="Contraseña"
-        class="mt-4 input input-bordered w-full"
-      />
-      <button class="my-4 btn btn-primary text-white">Iniciar Sesión</button>
+      <form class="w-full" (submit)="iniciarSesion()">
+        <input
+          type="text"
+          placeholder="Correo Electrónico"
+          name="email"
+          [(ngModel)]="email"
+          class="mt-4 input input-bordered w-full"
+        />
+        <input
+          type="password"
+          placeholder="Contraseña"
+          name="password"
+          [(ngModel)]="password"
+          class="mt-4 input input-bordered w-full"
+        />
+        <button class="my-4 btn btn-primary text-white w-full">
+          Iniciar Sesión
+        </button>
+      </form>
       <a class="btn btn-link no-underline text-blue-400"
         >He olvidado mi contraseña</a
       >

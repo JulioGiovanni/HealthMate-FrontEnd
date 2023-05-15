@@ -23,7 +23,6 @@ export class NavComponent {
   ) {}
 
   ngOnInit() {
-    console.log(this.router.url.includes('perfil'));
     this.authService.isAuthenticated.subscribe((response) => {
       this.isAuth = response;
     });

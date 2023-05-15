@@ -17,6 +17,8 @@ import { AuthGuard } from './shared/guards/auth.guard';
 import { ChatsComponent } from './pages/usuarios/profile/chats/chats.component';
 import { CitasComponent } from './pages/usuarios/profile/citas/citas.component';
 import { DetalleComponent } from './pages/usuarios/profile/citas/detalle/detalle.component';
+import { DetalleDoctorComponent } from './pages/doctores/home/detalle/detalle.component';
+import { MensajesDoctoresComponent } from './pages/doctores/mensajes/mensajes.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -92,6 +94,14 @@ const routes: Routes = [
       {
         path: '',
         component: DoctoresHomeComponent,
+      },
+      {
+        path: 'detalles/:id',
+        component: DetalleDoctorComponent,
+      },
+      {
+        path: 'mensajes',
+        component: MensajesDoctoresComponent,
       },
       {
         path: 'login',

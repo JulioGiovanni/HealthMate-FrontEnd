@@ -75,7 +75,7 @@ export class AuthService {
     });
   }
 
-  signUp(user: User) {
+  signUp(user: any) {
     return this.http.post(environment.apiUrl + 'auth/register', user);
   }
 

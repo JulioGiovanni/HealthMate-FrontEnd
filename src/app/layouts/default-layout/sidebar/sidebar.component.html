@@ -1,4 +1,12 @@
-<div class="bg-primary h-screen flex flex-col px-8 py-32">
+<div class="hidden md:flex bg-primary h-screen flex-col px-8 py-32 w-full">
+  <a [href]="['/perfil']" class="btn btn-ghost text-white">Mi perfil</a>
+  <a [href]="['/perfil/citas']" class="btn btn-ghost text-white">Mis citas</a>
+  <a [href]="['/perfil/chats']" class="btn btn-ghost text-white"
+    >Mis mensajes</a
+  >
+</div>
+
+<div class="flex justify-center tabs tabs-boxed md:hidden">
   <a [href]="['/perfil']" class="btn btn-ghost text-white">Mi perfil</a>
   <a [href]="['/perfil/citas']" class="btn btn-ghost text-white">Mis citas</a>
   <a [href]="['/perfil/chats']" class="btn btn-ghost text-white"

@@ -4,39 +4,114 @@
       <p class="font-bold text-3xl my-8">Crear cuenta</p>
       <app-google-button text="Continuar con Google"></app-google-button>
       <div class="divider my-8">o</div>
-      <input
-        type="text"
-        placeholder="Correo Electrónico"
-        class="mt-4 input input-bordered w-full"
-      />
-      <input
-        type="password"
-        placeholder="Contraseña"
-        class="mt-4 input input-bordered w-full"
-      />
-      <button class="my-4 btn btn-primary text-white">Registrarme</button>
 
-      <p class="text-sm text">
-        Al crear la cuenta de usuario aceptas los
-        <a
-          class="hover:underline cursor-pointer text-sm no-underline text-blue-500"
-          >términos y condiciones
-        </a>
-        del servicio de HealthMate S.A de C.V y reconoces que has leído nuestra
-        <a
-          class="hover:underline cursor-pointer text-sm no-underline text-blue-500"
-          >política de privacidad
-        </a>
-      </p>
-      <div class="divider"></div>
-      <p class="text-center">
-        ¿Ya tienes una cuenta?
-        <a
-          [routerLink]="['/login']"
-          class="btn btn-link no-underline text-blue-500"
-          >Inicia sesión</a
-        >
-      </p>
+      <div class="mt-4 form-control">
+        <label class="label">
+          <span class="label-text font-bold"> Nombre </span>
+        </label>
+        <input
+          placeholder="Nombre"
+          type="text"
+          class="input input-bordered w-full"
+          name="nombre"
+          [(ngModel)]="nombre"
+        />
+      </div>
+      <div class="mt-4 form-control">
+        <label class="label">
+          <span class="label-text font-bold"> Correo Electrónico </span>
+        </label>
+        <input
+          type="text"
+          name="email"
+          placeholder="Correo Electrónico"
+          class="mt-4 input input-bordered w-full"
+          [(ngModel)]="email"
+        />
+      </div>
+      <div class="mt-4 form-control">
+        <label class="label">
+          <span class="label-text font-bold"> Contraseña </span>
+        </label>
+        <input
+          type="password"
+          name="password"
+          placeholder="Contraseña"
+          class="mt-4 input input-bordered w-full"
+          [(ngModel)]="password"
+        />
+      </div>
+
+      <div class="mt-4 form-control">
+        <label class="label">
+          <span class="label-text font-bold">Número telefónico </span>
+        </label>
+        <input
+          placeholder="Teléfono o celular"
+          type="text"
+          name="telefono"
+          class="input input-bordered w-full"
+          [(ngModel)]="telefono"
+        />
+      </div>
+      <div class="mt-4 form-control">
+        <label class="label">
+          <span class="label-text font-bold">Dirección</span>
+        </label>
+        <input
+          placeholder="Teléfono o celular"
+          type="text"
+          name="direccion"
+          class="input input-bordered w-full"
+          [(ngModel)]="direccion"
+        />
+      </div>
+      <div class="mt-4 form-control">
+        <label class="label">
+          <span class="label-text font-bold">Fecha de nacimiento </span>
+        </label>
+        <input
+          placeholder="Teléfono o celular"
+          type="date"
+          name="fechaNacimiento"
+          class="input input-bordered w-full"
+          [(ngModel)]="fechaNacimiento"
+        />
+        <div class="mt-4 form-control">
+          <label class="label">
+            <span class="label-text font-bold">Foto </span>
+          </label>
+          <input
+            type="file"
+            class="file-input file-input-primary w-full"
+            [(ngModel)]="foto"
+          />
+        </div>
+        <button class="my-4 btn btn-primary text-white">Registrarme</button>
+
+        <p class="text-sm text">
+          Al crear la cuenta de usuario aceptas los
+          <a
+            class="hover:underline cursor-pointer text-sm no-underline text-blue-500"
+            >términos y condiciones
+          </a>
+          del servicio de HealthMate S.A de C.V y reconoces que has leído
+          nuestra
+          <a
+            class="hover:underline cursor-pointer text-sm no-underline text-blue-500"
+            >política de privacidad
+          </a>
+        </p>
+        <div class="divider"></div>
+        <p class="text-center">
+          ¿Ya tienes una cuenta?
+          <a
+            [routerLink]="['/login']"
+            class="btn btn-link no-underline text-blue-500"
+            >Inicia sesión</a
+          >
+        </p>
+      </div>
     </div>
   </div>
 </div>

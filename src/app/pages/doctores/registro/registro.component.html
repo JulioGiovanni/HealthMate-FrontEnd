@@ -15,6 +15,8 @@
         <input
           placeholder="Nombre"
           type="text"
+          name="nombre"
+          [(ngModel)]="nombre"
           class="input input-bordered w-full"
         />
       </div>
@@ -25,6 +27,8 @@
         <input
           placeholder="Correo"
           type="text"
+          name="email"
+          [(ngModel)]="email"
           class="input input-bordered w-full"
         />
       </div>
@@ -36,6 +40,8 @@
       <input
         placeholder="Teléfono o celular"
         type="text"
+        name="telefono"
+        [(ngModel)]="telefono"
         class="input input-bordered w-full"
       />
     </div>
@@ -46,6 +52,8 @@
       <input
         placeholder="Contraseña"
         type="password"
+        name="password"
+        [(ngModel)]="password"
         class="input input-bordered w-full"
       />
       <label for="" class="label">
@@ -58,7 +66,23 @@
       <label class="label">
         <span class="label-text font-bold">Número de cédula *</span>
       </label>
-      <input type="text" class="input input-bordered w-full" />
+      <input
+        type="text"
+        class="input input-bordered w-full"
+        name="cedula"
+        [(ngModel)]="cedula"
+      />
+    </div>
+    <div class="mt-4 form-control">
+      <label class="label">
+        <span class="label-text font-bold">Foto *</span>
+      </label>
+      <input
+        type="file"
+        class="file-input file-input-primary w-full"
+        name="imagen"
+        [(ngModel)]="foto"
+      />
     </div>
     <div class="mt-4 form-control">
       <label class="label">
@@ -66,7 +90,12 @@
           >Escaneado de diploma o certificación *</span
         >
       </label>
-      <input type="file" class="file-input file-input-primary w-full" />
+      <input
+        type="file"
+        class="file-input file-input-primary w-full"
+        name="certificado"
+        [(ngModel)]="certificado"
+      />
       <label for="" class="label">
         <span class="label-text-alt text-gray-400"
           >Por favor, adjunta tu diploma o certificado que demuestre tu
@@ -74,6 +103,7 @@
         >
       </label>
     </div>
+
     <button
       class="btn btn-block btn-primary text-white my-4"
       (click)="registrarse()"

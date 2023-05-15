@@ -19,6 +19,14 @@
           <li *ngIf="isAuth && !isDoctorAuth">
             <a [routerLink]="['/perfil']" class="text-white">Ir a mi perfil</a>
           </li>
+          <li *ngIf="!isAuth && isDoctorAuth">
+            <a [routerLink]="['/doctores/mensajes']" class="text-white"
+              >Mensajes</a
+            >
+          </li>
+          <li *ngIf="!isAuth && isDoctorAuth">
+            <a [routerLink]="['/doctores']" class="text-white">Dashboard</a>
+          </li>
           <li *ngIf="!isAuth && !isDoctorAuth" tabindex="0">
             <a class="text-white">
               Registrarme
@@ -79,8 +87,8 @@
       </div>
     </div>
     <!-- Page content here -->
-    <div [ngClass]="profile ? 'flex w-full' : ''">
-      <app-sidebar class="w-2/12" *ngIf="profile"></app-sidebar>
+    <div [ngClass]="profile ? 'flex w-full flex-col md:flex-row' : ''">
+      <app-sidebar *ngIf="profile"></app-sidebar>
       <div class="w-full">
         <router-outlet></router-outlet>
       </div>
