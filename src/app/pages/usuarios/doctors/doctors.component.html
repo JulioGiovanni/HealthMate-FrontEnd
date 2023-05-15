@@ -1,4 +1,6 @@
-<div class="bg-gray-300 w-full h-full p-12 flex flex-col space-y-4">
+<div
+  class="bg-gray-300 w-full h-screen overflow-y-auto p-12 flex flex-col space-y-4"
+>
   <!-- <ng-template *ngFor="let doctor of doctores">
   </ng-template> -->
   <app-card *ngFor="let doctor of doctores" [doctor]="doctor"></app-card>
