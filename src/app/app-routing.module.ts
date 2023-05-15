@@ -23,7 +23,7 @@ import { MensajesDoctoresComponent } from './pages/doctores/mensajes/mensajes.co
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'chat/:id', component: ChatViewComponent, canActivate: [AuthGuard] },
+  { path: 'chat/:id', component: ChatViewComponent },
   {
     path: 'login',
     component: LoginComponent,

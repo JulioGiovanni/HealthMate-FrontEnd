@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Doctor } from 'src/app/shared/interfaces/doctor.interface';
+import { User } from 'src/app/shared/interfaces/user';
+import { AuthService } from 'src/app/shared/services/auth/auth.service';
 import { environment } from 'src/environments/environment.development';
 
 @Component({
@@ -10,11 +12,23 @@ import { environment } from 'src/environments/environment.development';
 })
 export class DetailsComponent {
   doctor: Doctor;
+  user: User = {
+    id: '',
+    nombre: '',
+    email: '',
+    password: '',
+    direccion: '',
+    telefono: '',
+    fechaNacimiento: '',
+    foto: '',
+    googleId: '',
+    token: '',
+  };
   environment = environment;
   direcciones: any = [];
   motivos: any = [];
 
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, authService: AuthService) {
     this.doctor = this.route.snapshot.data['data'];
     this.direcciones = [
       {
@@ -36,7 +50,9 @@ export class DetailsComponent {
         motivo: 'Operación',
       },
     ];
-    console.log(this.doctor);
+    authService.user.subscribe((user) => {
+      this.user = user;
+    });
   }
 
   ngOnInit() {}

@@ -105,7 +105,6 @@ export class GeneralService implements Resolve<any> {
     );
   }
   getConversationsDoctor() {
-    console.log(this.doctor.id);
     return this.http.get(
       environment.apiUrl + 'mensajes/conversations/' + this.doctor.id
     );

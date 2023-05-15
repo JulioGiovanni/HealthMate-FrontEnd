@@ -13,7 +13,6 @@ export class DoctoresHomeComponent {
   environment = environment;
   constructor(private generalService: GeneralService) {
     this.generalService.getCitasDoctor().subscribe((response: any) => {
-      console.log(response);
       this.citas = response;
     });
   }

@@ -25,7 +25,7 @@
             <p class="ml-4 text-white">Agendar cita</p>
           </button>
           <a
-            [routerLink]="['/chat/' + doctor.id]"
+            [routerLink]="['/chat/' + doctor.id + '_' + user.id]"
             class="btn btn-outline hover:bg-gray-200"
           >
             <mat-icon>chat</mat-icon>

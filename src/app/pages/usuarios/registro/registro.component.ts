@@ -18,18 +18,14 @@ export class RegistroComponent {
   constructor(private authService: AuthService) {}
 
   register() {
-    this.authService
-      .signUp({
-        nombre: this.nombre,
-        email: this.email,
-        password: this.password,
-        direccion: this.direccion,
-        telefono: this.telefono,
-        fechaNacimiento: this.fechaNacimiento,
-        foto: this.foto,
-      })
-      .subscribe((data) => {
-        console.log(data);
-      });
+    this.authService.signUp({
+      nombre: this.nombre,
+      email: this.email,
+      password: this.password,
+      direccion: this.direccion,
+      telefono: this.telefono,
+      fechaNacimiento: this.fechaNacimiento,
+      foto: this.foto,
+    });
   }
 }

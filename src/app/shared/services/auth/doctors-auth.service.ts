@@ -63,7 +63,6 @@ export class DoctorsAuthService {
     return this.http
       .post(environment.apiUrl + 'doctor-auth/login', { email, password })
       .subscribe((response: any) => {
-        console.log(response);
         localStorage.setItem('doctortoken', response.token);
         localStorage.setItem('doctor', JSON.stringify(response.doctor));
         this._isAuthenticated.next(true);

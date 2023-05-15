@@ -117,7 +117,12 @@
           </li>
         </div>
       </div>
-
+      <li *ngIf="!isAuth && isDoctorAuth">
+        <a [routerLink]="['/doctores/mensajes']" class="text-white">Mensajes</a>
+      </li>
+      <li *ngIf="!isAuth && isDoctorAuth">
+        <a [routerLink]="['/doctores']" class="text-white">Dashboard</a>
+      </li>
       <li *ngIf="!isAuth && !isDoctorAuth">
         <a [routerLink]="['/login']">Iniciar sesión</a>
       </li>

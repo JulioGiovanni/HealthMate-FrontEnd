@@ -26,7 +26,6 @@ export class SelectComponent {
     this.options = [];
 
     this.selectedOption.nombre = this.placeholder;
-    console.log(this.options);
   }
 
   toggleDropdown() {

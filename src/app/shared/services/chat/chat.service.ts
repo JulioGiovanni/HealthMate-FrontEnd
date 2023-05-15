@@ -12,13 +12,17 @@ export class ChatService {
 
   constructor() {}
 
-  public connect(namespace: string): Observable<ChatMessage> {
+  public connect(namespace: string): Observable<any> {
     const url = `${this.baseUrl}/${namespace}`;
     this.socket = io(url);
 
-    return new Observable<ChatMessage>((observer: Observer<ChatMessage>) => {
+    return new Observable<any>((observer: Observer<any>) => {
       this.socket.on('message', (message: ChatMessage) => {
-        observer.next(message);
+        observer.next({ type: 'message', data: message });
+      });
+
+      this.socket.on('previousMessages', (messages: ChatMessage[]) => {
+        observer.next({ type: 'previousMessages', data: messages });
       });
 
       this.socket.on('disconnect', () => {
@@ -40,8 +44,8 @@ export class ChatService {
     });
   }
 
-  public joinRoom(room: string): void {
-    this.socket.emit('joinRoom', room);
+  public joinRoom({ roomId, participant1Id, participant2Id }: any): void {
+    this.socket.emit('joinRoom', { roomId, participant1Id, participant2Id });
   }
 
   public sendMessage(message: ChatMessage, roomId: string): void {
