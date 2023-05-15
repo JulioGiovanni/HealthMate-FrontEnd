@@ -7,12 +7,30 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
+import { AuthService } from '../auth/auth.service';
+import { User } from '../../interfaces/user';
 
 @Injectable({
   providedIn: 'root',
 })
 export class GeneralService implements Resolve<any> {
-  constructor(private http: HttpClient) {}
+  user: User = {
+    id: '',
+    nombre: '',
+    email: '',
+    password: '',
+    direccion: '',
+    telefono: '',
+    fechaNacimiento: '',
+    foto: '',
+    googleId: '',
+    token: '',
+  };
+  constructor(private http: HttpClient, private authService: AuthService) {
+    this.authService.user.subscribe((user) => {
+      this.user = user;
+    });
+  }
 
   resolve(
     route: ActivatedRouteSnapshot,
@@ -34,5 +52,19 @@ export class GeneralService implements Resolve<any> {
 
   lastRegisteredDoctors() {
     return this.http.get(environment.apiUrl + 'doctores/lastdoctors');
+  }
+
+  getCitas() {
+    return this.http.get(environment.apiUrl + 'citas?=' + this.user.id);
+  }
+
+  getSingleCita(id: string) {
+    return this.http.get(environment.apiUrl + 'citas/' + id);
+  }
+
+  getConversations() {
+    return this.http.get(
+      environment.apiUrl + 'mensajes/conversations/' + this.user.id
+    );
   }
 }

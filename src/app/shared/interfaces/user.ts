@@ -3,10 +3,10 @@ export interface User {
   nombre: string;
   email: string;
   password: string;
-  telefono: number;
+  telefono: string;
   foto: string;
   direccion: string;
-  fechaNacimiento: Date;
+  fechaNacimiento: string;
   googleId: string;
   token: string;
 }

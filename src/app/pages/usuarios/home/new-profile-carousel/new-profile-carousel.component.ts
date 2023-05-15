@@ -2,6 +2,7 @@ import { Component, Input, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Doctor } from 'src/app/shared/interfaces/doctor.interface';
 import { GeneralService } from 'src/app/shared/services/general/general.service';
+import { environment } from '../../../../../environments/environment';
 
 @Component({
   selector: 'app-new-profile-carousel',
@@ -14,6 +15,7 @@ export class NewProfileCarouselComponent implements OnInit {
   currentPage: number = 0;
   pages: number[] = [];
   pageSize: number = 3;
+  environment = environment;
 
   breakpoints = {
     small: '(max-width: 640px)',

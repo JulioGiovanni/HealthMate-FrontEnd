@@ -38,7 +38,7 @@
                 class="card border solid w-full sm:w-1/2 lg:w-1/3 rounded-lg shadow-md p-4 flex flex-row justify-evenly items-center space-x-4"
               >
                 <img
-                  src="{{ card.foto }}"
+                  src="{{ environment.supabaseUrl + card.foto }}"
                   alt="doctor profile picture"
                   class="rounded-full w-[100px] h-[100px]"
                 />

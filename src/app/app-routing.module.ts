@@ -4,7 +4,6 @@ import { HomeComponent } from './pages/usuarios/home/home.component';
 import { ProfileComponent } from './pages/usuarios/profile/profile.component';
 import { DoctoresComponent } from './pages/usuarios/doctors/doctors.component';
 import { NotFoundComponent } from './shared/components/not-found/not-found.component';
-import { HomeProfileComponent } from './pages/usuarios/home-profile/home-profile.component';
 import { DetailsComponent } from './pages/usuarios/doctors/details/details.component';
 import { LoginComponent } from './pages/usuarios/login/login.component';
 import { layoutTypes } from './shared/utils';
@@ -15,6 +14,9 @@ import { DoctoresRegistroComponent } from './pages/doctores/registro/registro.co
 import { ChatViewComponent } from './shared/components/chat-view/chat-view.component';
 import { GeneralService } from './shared/services/general/general.service';
 import { AuthGuard } from './shared/guards/auth.guard';
+import { ChatsComponent } from './pages/usuarios/profile/chats/chats.component';
+import { CitasComponent } from './pages/usuarios/profile/citas/citas.component';
+import { DetalleComponent } from './pages/usuarios/profile/citas/detalle/detalle.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
@@ -40,12 +42,28 @@ const routes: Routes = [
   },
   {
     path: 'perfil',
-    component: ProfileComponent,
     canActivate: [AuthGuard],
     children: [
       {
-        path: 'history',
-        component: HomeProfileComponent, // another child route component that the router renders
+        path: '',
+        component: ProfileComponent, // another child route component that the router renders
+      },
+      {
+        path: 'chats',
+        component: ChatsComponent, // another child route component that the router renders
+      },
+      {
+        path: 'citas',
+        children: [
+          {
+            path: '',
+            component: CitasComponent, // another child route component that the router renders
+          },
+          {
+            path: ':id',
+            component: DetalleComponent,
+          }, // another child route component that the router renders
+        ],
       },
     ],
   },

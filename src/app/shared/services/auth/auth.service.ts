@@ -16,8 +16,8 @@ export class AuthService {
     email: '',
     password: '',
     direccion: '',
-    telefono: 0,
-    fechaNacimiento: new Date(),
+    telefono: '',
+    fechaNacimiento: '',
     foto: '',
     googleId: '',
     token: '',
@@ -67,11 +67,43 @@ export class AuthService {
       email: '',
       password: '',
       direccion: '',
-      telefono: 0,
-      fechaNacimiento: new Date(),
+      telefono: '',
+      fechaNacimiento: '',
       foto: '',
       googleId: '',
       token: '',
     });
+  }
+
+  signUp(user: User) {
+    return this.http.post(environment.apiUrl + 'auth/register', user);
+  }
+
+  update(user: User, imagen?: File) {
+    const formData = new FormData();
+    formData.append('nombre', user.nombre);
+    formData.append('email', user.email);
+    formData.append('password', user.password);
+    formData.append('direccion', user.direccion);
+    formData.append('telefono', user.telefono);
+    formData.append('fechaNacimiento', user.fechaNacimiento);
+
+    if (imagen) {
+      formData.append('imagen', imagen, imagen.name);
+    }
+
+    return this.http
+      .patch(environment.apiUrl + 'usuarios/' + user.id, formData)
+      .subscribe(
+        (response: any) => {
+          localStorage.setItem('user', JSON.stringify(response.usuario));
+          this._user.next(response.usuario);
+          // Aquí puedes realizar acciones adicionales después de recibir la respuesta del backend
+        },
+        (error: any) => {
+          console.error(error);
+          // Aquí puedes manejar cualquier error que ocurra durante la solicitud
+        }
+      );
   }
 }

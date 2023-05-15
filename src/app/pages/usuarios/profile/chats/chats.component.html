@@ -1,0 +1,16 @@
+<div class="flex flex-col p-8">
+  <a
+    [href]="['chat/' + conversation.roomId]"
+    *ngFor="let conversation of conversations"
+    class="border border-solid p-6 rounded-md my-4"
+  >
+    <div class="flex">
+      <img
+        src="{{ environment.supabaseUrl + conversation.participant2.foto }}"
+        class="w-16 h-16 object-cover mr-4"
+        alt=""
+      />
+      <p class="text-lg">{{ conversation.participant2.nombre }}</p>
+    </div>
+  </a>
+</div>

@@ -16,7 +16,9 @@
         <ul class="menu menu-horizontal px-1">
           <li><a class="text-white">¿Cómo protegemos los datos?</a></li>
           <li><a class="text-white">Pregunta al Experto</a></li>
-
+          <li *ngIf="isAuth && !isDoctorAuth">
+            <a [routerLink]="['/perfil']" class="text-white">Ir a mi perfil</a>
+          </li>
           <li *ngIf="!isAuth && !isDoctorAuth" tabindex="0">
             <a class="text-white">
               Registrarme
@@ -77,7 +79,13 @@
       </div>
     </div>
     <!-- Page content here -->
-    <router-outlet></router-outlet>
+    <div [ngClass]="profile ? 'flex w-full' : ''">
+      <app-sidebar class="w-2/12" *ngIf="profile"></app-sidebar>
+      <div class="w-full">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+    <!--  -->
   </div>
   <div class="drawer-side">
     <label for="my-drawer-3" class="drawer-overlay"></label>
@@ -85,6 +93,9 @@
       <!-- Sidebar content here -->
       <li><a>¿Cómo protegemos los datos?</a></li>
       <li><a>Pregunta al Experto</a></li>
+      <li *ngIf="isAuth && !isDoctorAuth">
+        <a [routerLink]="['/perfil']">Ir a mi perfil</a>
+      </li>
       <div
         *ngIf="!isAuth && !isDoctorAuth"
         tabindex="0"
@@ -102,6 +113,7 @@
       <li *ngIf="!isAuth && !isDoctorAuth">
         <a [routerLink]="['/login']">Iniciar sesión</a>
       </li>
+
       <li *ngIf="isAuth || isDoctorAuth">
         <a (click)="onSignOut()" class="hover:bg-red-400 hover:text-white"
           >Cerrar sesión</a

@@ -1,8 +1,6 @@
 <ng-container [ngSwitch]="layout$ | async">
   <app-default-layout *ngSwitchCase="layoutTypes.Default"> </app-default-layout>
 
-  <app-profile-layout *ngSwitchCase="layoutTypes.Profile"> </app-profile-layout>
-
   <app-auth-layout *ngSwitchCase="layoutTypes.Auth"> </app-auth-layout>
 
   <app-doctors-auth *ngSwitchCase="layoutTypes.DoctorsAuth"> </app-doctors-auth>

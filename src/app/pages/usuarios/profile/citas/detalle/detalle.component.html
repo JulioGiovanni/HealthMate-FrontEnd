@@ -1,0 +1,44 @@
+<div class="p-8">
+  <div class="border border-solid rounded-md p-6">
+    <p class="text-lg font-bold">Datos de la cita</p>
+    <div class="divider"></div>
+    <div class="flex">
+      <img
+        src="{{ environment.supabaseUrl + cita.doctor.foto }}"
+        class="w-16 h-16 object-cover mr-4"
+        alt=""
+      />
+      <div class="flex flex-col">
+        <a
+          class="btn btn-link no-underline"
+          [href]="[
+            'categoria/' +
+              cita.doctor.especialidad.id +
+              '/doctor/' +
+              cita.doctor.id
+          ]"
+          >{{ cita.doctor.nombre }}</a
+        >
+        <p class="text-gray-400">{{ cita.doctor.especialidad.nombre }}</p>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="flex">
+      <div class="md:w-1/12 w-2/12">
+        <mat-icon>calendar_today</mat-icon>
+      </div>
+      <div class="flex flex-col md:w-11/12 w-10/12">
+        <p class="font-normal">{{ cita.fecha }}</p>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="flex">
+      <div class="md:w-1/12 w-2/12">
+        <mat-icon>local_hospital</mat-icon>
+      </div>
+      <div class="flex flex-col md:w-11/12 w-10/12">
+        <p class="font-normal">{{ cita.motivo }}</p>
+      </div>
+    </div>
+  </div>
+</div>

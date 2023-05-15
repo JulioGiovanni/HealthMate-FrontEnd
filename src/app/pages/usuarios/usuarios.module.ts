@@ -12,18 +12,17 @@ import { TabsComponent } from './doctors/tabs/tabs.component';
 import { DetailsComponent } from './doctors/details/details.component';
 import { LoginComponent } from './login/login.component';
 import { NewProfileCarouselComponent } from './home/new-profile-carousel/new-profile-carousel.component';
-import { HomeProfileComponent } from './home-profile/home-profile.component';
 import { RouterModule } from '@angular/router';
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MaterialModule } from 'src/app/modules/material/material.module';
 import { FormsModule } from '@angular/forms';
 import { SelectCategoriaComponent } from './home/select-categoria/select-categoria.component';
+import { ChatsComponent } from './profile/chats/chats.component';
+import { CitasComponent } from './profile/citas/citas.component';
+import { DetalleComponent } from './profile/citas/detalle/detalle.component';
 
 @NgModule({
   declarations: [
-    // CalendarComponent,
-    // HistoryComponent,
-    HomeProfileComponent,
     HomeComponent,
     ProfileComponent,
     DoctoresComponent,
@@ -35,6 +34,9 @@ import { SelectCategoriaComponent } from './home/select-categoria/select-categor
     LoginComponent,
     NewProfileCarouselComponent,
     SelectCategoriaComponent,
+    ChatsComponent,
+    CitasComponent,
+    DetalleComponent,
   ],
   imports: [
     CommonModule,
@@ -44,9 +46,6 @@ import { SelectCategoriaComponent } from './home/select-categoria/select-categor
     FormsModule,
   ],
   exports: [
-    // CalendarComponent,
-    // HistoryComponent,
-    HomeProfileComponent,
     HomeComponent,
     ProfileComponent,
     DoctoresComponent,

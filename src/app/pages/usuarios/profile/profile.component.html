@@ -1,1 +1,79 @@
-<p>profile works!</p>
+<div class="flex flex-col items-center py-16">
+  <p class="text-3xl">¡Hola {{ usuario.nombre }}!</p>
+  <p class="text-xl">Aquí puedes editar tus datos personales</p>
+
+  <form (submit)="update()" class="my-8">
+    <div class="relative w-64 h-64 overflow-hidden rounded-full">
+      <div (click)="uploadPhoto()" class="w-64 h-64 cursor-pointer">
+        <img [src]="foto" alt="profile" class="object-cover w-full h-full" />
+        <input
+          id="fileInput"
+          type="file"
+          class="hidden"
+          name="imagen"
+          (change)="onFileSelected($event)"
+        />
+      </div>
+      <div
+        class="absolute bottom-1 w-full text-center py-2 bg-black bg-opacity-70 text-white cursor-pointer"
+        (click)="uploadPhoto()"
+      >
+        <span>Cambiar foto</span>
+      </div>
+    </div>
+
+    <div class="mt-4 form-control">
+      <label class="label">
+        <span class="label-text font-bold"> Nombre </span>
+      </label>
+      <input
+        placeholder="Nombre"
+        type="text"
+        class="input input-bordered w-full"
+        name="nombre"
+        [(ngModel)]="nombre"
+      />
+    </div>
+
+    <div class="mt-4 form-control">
+      <label class="label">
+        <span class="label-text font-bold">Número telefónico </span>
+      </label>
+      <input
+        placeholder="Teléfono o celular"
+        type="text"
+        name="telefono"
+        class="input input-bordered w-full"
+        value="{{ usuario.telefono }}"
+        [(ngModel)]="telefono"
+      />
+    </div>
+    <div class="mt-4 form-control">
+      <label class="label">
+        <span class="label-text font-bold">Dirección</span>
+      </label>
+      <input
+        placeholder="Teléfono o celular"
+        type="text"
+        name="direccion"
+        class="input input-bordered w-full"
+        [(ngModel)]="direccion"
+      />
+    </div>
+    <div class="mt-4 form-control">
+      <label class="label">
+        <span class="label-text font-bold">Número telefónico </span>
+      </label>
+      <input
+        placeholder="Teléfono o celular"
+        type="date"
+        name="fechaNacimiento"
+        class="input input-bordered w-full"
+        [(ngModel)]="fechaNacimiento"
+      />
+    </div>
+    <button class="my-6 btn btn-primary text-white w-full">
+      Actualizar datos
+    </button>
+  </form>
+</div>

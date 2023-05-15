@@ -1,19 +1,23 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { layoutTypes } from './shared/utils';
 import { Observable, filter, map, mergeMap } from 'rxjs';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'Health Mate';
+
   layout$ = this.getLayoutType$();
 
   readonly layoutTypes = layoutTypes;
 
   constructor(private activatedRoute: ActivatedRoute, private router: Router) {}
+
+  ngOnInit() {}
 
   //Esto sirve para cambiar entre los diferentes layouts
   private getLayoutType$(): Observable<layoutTypes> {
