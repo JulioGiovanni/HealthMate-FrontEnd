@@ -1,7 +1,3 @@
-<div
-  class="bg-gray-300 w-full h-screen overflow-y-auto p-12 flex flex-col space-y-4"
->
-  <!-- <ng-template *ngFor="let doctor of doctores">
-  </ng-template> -->
+<div class="bg-gray-300 w-full flex flex-col p-8 space-y-4 md:p-12">
   <app-card *ngFor="let doctor of doctores" [doctor]="doctor"></app-card>
 </div>

@@ -6,12 +6,12 @@
     class="border border-solid rounded-md my-8 p-6"
   >
     <div class="flex flex-col">
-      <div class="flex flex-row">
-        <div class="w-7/12 flex">
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-7/12 w-12/12 flex flex-col items-center md:flex-row">
           <img
             src="{{ environment.supabaseUrl + cita.doctor.foto }}"
             alt="{{ cita.doctor.foto }}"
-            class="w-16 h-16 object-cover mr-4"
+            class="w-[100px] h-[100px] rounded-full md:rounded-none object-cover md:mr-4"
           />
           <div class="flex flex-col">
             <p class="text-lg font-semibold">{{ cita.doctor.nombre }}</p>
@@ -20,27 +20,25 @@
             </p>
           </div>
         </div>
-        <div class="w-5/12 flex justify-end">
-          <div class="flex flex-col">
-            <p class="text-base text-gray-400">{{ cita.fecha }}</p>
-            <p class="text-base text-gray-400">{{ cita.motivo }}</p>
-          </div>
+        <div class="md:w-5/12 w-12/12 flex flex-col md:items-end">
+          <p class="text-base text-gray-400">{{ cita.fecha }}</p>
+          <p class="text-base text-gray-400">{{ cita.motivo }}</p>
         </div>
       </div>
       <div class="divider"></div>
-      <div class="flex flex-row">
-        <div class="md:w-6/12 flex">
+      <div class="flex flex-col md:flex-row">
+        <div class="md:w-6/12 w-12/12 flex">
           <a
             [href]="['/perfil/citas/' + cita.id]"
-            class="border border-solid p-4 rounded-md text-center text-base text-gray-600 hover:bg-gray-100"
+            class="border w-full md:w-auto border-solid p-4 rounded-md text-center text-base text-gray-600 hover:bg-gray-100"
           >
             Datos de la cita</a
           >
         </div>
-        <div class="md:w-6/12 flex justify-end">
+        <div class="md:w-6/12 w-12/12 flex md:justify-end">
           <a
             [href]="['/perfil/citas/{{cita.id}}']"
-            class="border border-solid p-4 rounded-md text-center text-base text-gray-600 hover:bg-gray-100"
+            class="border w-full md:w-auto border-solid p-4 rounded-md text-center text-base text-gray-600 hover:bg-gray-100"
           >
             Escribir una opinión</a
           >

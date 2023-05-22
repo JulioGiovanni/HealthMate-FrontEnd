@@ -1,7 +1,7 @@
-<div class="mt-6 container flex flex-col items-start">
+<div class="mt-6 flex flex-col items-start">
   <p class="font-bold text-xl">Nuevos especialistas en HealthMate</p>
   <div class="w-full">
-    <div class="flex overflow-x-hidden w-full">
+    <div class="flex w-full justify-center">
       <button
         class="text-gray-600 py-2 px-4"
         (click)="prevPage()"
@@ -27,7 +27,7 @@
           [ngSwitch]="currentPage === page"
         >
           <div
-            class="flex my-8 mx-4 space-x-3 carousel-page w-full"
+            class="flex my-8 md:mx-4 md:space-x-3 carousel-page w-full"
             *ngSwitchCase="true"
           >
             <ng-container *ngFor="let card of getCardsForPage(page)">
@@ -35,12 +35,12 @@
                 routerLink="{{
                   '/categoria/' + card.especialidad.id + '/doctor/' + card.id
                 }}"
-                class="card border solid w-full sm:w-1/2 lg:w-1/3 rounded-lg shadow-md p-4 flex flex-row justify-evenly items-center space-x-4"
+                class="card border solid w-full md:w-1/2 lg:w-1/3 rounded-lg shadow-md p-4 flex flex-row justify-evenly items-center md:space-x-4"
               >
                 <img
                   src="{{ environment.supabaseUrl + card.foto }}"
                   alt="doctor profile picture"
-                  class="rounded-full w-[100px] h-[100px]"
+                  class="rounded-full md:w-[100px] md:h-[100px] w-[80px] h-[80px]"
                 />
                 <div class="flex flex-col">
                   <h2 class="text-sm md:text-lg font-bold mb-2">

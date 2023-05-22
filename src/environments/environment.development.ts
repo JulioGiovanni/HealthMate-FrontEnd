@@ -1,5 +1,5 @@
 export const environment = {
-  apiUrl: 'http://localhost:3000/api/',
+  apiUrl: 'https://healthmate-backend-production.up.railway.app/api/',
   supabaseUrl:
     'https://idphqvjskealuhdepsgz.supabase.co/storage/v1/object/public/Healthmate/',
   token:

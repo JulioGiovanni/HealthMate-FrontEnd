@@ -2,9 +2,9 @@
   <div class="flex lg:flex-row flex-col">
     <!-- Lado izquierdo en Desktop y lado arriba en móviles -->
     <div class="flex flex-col lg:border-r lg:w-2/4 border-gray-300">
-      <div class="flex">
+      <div class="flex flex-col md:flex-row items-center">
         <img
-          class="rounded-full"
+          class="rounded-full md:w-[150px] md:h-[150px] w-[100px] h-[100px]"
           src="{{
             environment.supabaseUrl +
               doctor.foto +
@@ -12,10 +12,8 @@
               environment.token
           }}"
           alt="doctor-image"
-          height="100"
-          width="100"
         />
-        <div class="ml-6 flex flex-col">
+        <div class="md:ml-6 flex flex-col">
           <a
             [routerLink]="[
               '/categoria/' + doctor.especialidad.id + '/doctor/' + doctor.id
@@ -36,7 +34,9 @@
     </div>
     <hr class="mt-6 lg:hidden" />
     <!-- Lado derecho en Desktop y lado abajo en móviles -->
-    <div class="mt-6 lg:mt-0 flex flex-col justify-evenly md:flex-row lg:w-2/4">
+    <div
+      class="hidden mt-6 lg:mt-0 md:flex flex-col justify-evenly md:flex-row lg:w-2/4"
+    >
       <div
         class="sm:hidden md:flex flex-col justify-center"
         *ngFor="let day of days; let i = index"
@@ -57,7 +57,7 @@
     <div class="md:hidden flex flex-col">
       <div class="flex w-full">
         <mat-icon>calendar_today</mat-icon>
-        <p class="ml-2 text-lg">Próxima fecha disponible:</p>
+        <p class="ml-2 text-lg">Próxima fecha:</p>
         <p class="ml-2 text-lg">fecha disponible</p>
       </div>
     </div>

@@ -2,18 +2,18 @@ import { Injectable } from '@angular/core';
 import { Observable, Observer } from 'rxjs';
 import { io, Socket } from 'socket.io-client';
 import { ChatMessage } from '../../interfaces/chatMessage.interface';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ChatService {
   private socket!: Socket;
-  private readonly baseUrl = 'http://localhost:3000';
 
   constructor() {}
 
   public connect(namespace: string): Observable<any> {
-    const url = `${this.baseUrl}/${namespace}`;
+    const url = `${environment.apiUrl}/${namespace}`;
     this.socket = io(url);
 
     return new Observable<any>((observer: Observer<any>) => {
