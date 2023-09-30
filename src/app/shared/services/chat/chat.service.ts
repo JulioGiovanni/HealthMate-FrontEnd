@@ -13,8 +13,9 @@ export class ChatService {
   constructor() {}
 
   public connect(namespace: string): Observable<any> {
-    const url = `${environment.apiUrl}/${namespace}`;
+    const url = `${environment.apiChatUrl}/${namespace}`;
     this.socket = io(url);
+    console.log(this.socket);
 
     return new Observable<any>((observer: Observer<any>) => {
       this.socket.on('message', (message: ChatMessage) => {
@@ -30,11 +31,13 @@ export class ChatService {
       });
 
       this.socket.on('error', (error: any) => {
+        console.log(error);
         observer.error(error);
       });
 
       // Agrega este manejador de eventos
       this.socket.on('connect_error', (error: any) => {
+        console.log(error);
         console.error('Error al conectar con el servidor:', error);
       });
 

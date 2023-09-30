@@ -8,6 +8,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { User } from '../../interfaces/user';
 import { DoctorsAuthService } from '../../services/auth/doctors-auth.service';
 import { Doctor } from '../../interfaces/doctor.interface';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-chat-view',
@@ -79,11 +80,15 @@ export class ChatViewComponent {
     });
     this.doctorsAuthService.doctor.subscribe((doctor) => {
       this.doctor = doctor;
+      this.fotoDoctor = environment.supabaseUrl + this.doctor.foto;
     });
     this.doctorsAuthService.isAuthenticated.subscribe((isAuthenticated) => {
       this.isDoctor = isAuthenticated;
+      this.fotoUsuario = environment.supabaseUrl + this.user.foto;
     });
   }
+  fotoDoctor = '';
+  fotoUsuario = '';
 
   ngOnInit(): void {
     this.messagesSubscription = this.chatService
